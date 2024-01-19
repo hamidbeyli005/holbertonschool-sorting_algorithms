@@ -20,13 +20,15 @@ void quick_sort(int *array, size_t size)
  * @arr: array to be sorted
  * @start: start index of the array
  * @end: end index of the array
+ * @size: size of arr
  * Return: void
 */
 void recursion_quick_sort(int *arr, int start, int end, size_t size)
-{	
+{
 	if (start < end && start >= 0)
 	{
 		int pivot_index = partition(arr, start, end, size);
+
 		recursion_quick_sort(arr, start, pivot_index - 1, size);
 		recursion_quick_sort(arr, pivot_index + 1, end, size);
 	}
@@ -37,12 +39,13 @@ void recursion_quick_sort(int *arr, int start, int end, size_t size)
  * @arr: array to be sorted
  * @start: start index of the array
  * @end: end index of the array
+ * @size: size of arr
  * Return: void
 */
 int partition(int *arr, int start, int end, size_t size)
 {
 	int pivot_value = arr[end], j = start, i = start - 1, temp;
-	
+
 	for (; j <= end; j++)
 	{
 		if (arr[j] <= pivot_value)
@@ -57,6 +60,6 @@ int partition(int *arr, int start, int end, size_t size)
 				print_array(arr, size);
 		}
 	}
-	return i;
+	return (i);
 }
 
